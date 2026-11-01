@@ -5,8 +5,8 @@ export const HUB_CONFIG = {
   // Fallback: "FORMSUBMIT" (Direct email to ndphuongsky@gmail.com)
   PROVIDER: "GOOGLE_APPS_SCRIPT",
   ENDPOINTS: {
-    // Paste your deployed Google Apps Script Web App Exec URL here:
-    GOOGLE_APPS_SCRIPT: "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec",
+    // Live Google Apps Script Web App (Connected to ndphuongsky@gmail.com & GitHub Issues)
+    GOOGLE_APPS_SCRIPT: "https://script.google.com/macros/s/AKfycbyzNH8cOUfD0LHdSVkskHd_7e0W2yKG5Rlyve1K2A5inyDUHR7bQ3PDYNVFYVyIUzT2/exec",
     FORMSUBMIT: "https://formsubmit.co/ajax/ndphuongsky@gmail.com",
     WEB3FORMS: "https://api.web3forms.com/submit"
   },
