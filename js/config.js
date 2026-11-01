@@ -4,8 +4,8 @@ export const HUB_CONFIG = {
   // Switch provider between "WEB3FORMS" and "FORMSUBMIT"
   PROVIDER: "FORMSUBMIT",
   ENDPOINTS: {
-    // Replace with Sếp's obfuscated FormSubmit token or email address
-    FORMSUBMIT: "https://formsubmit.co/ajax/phuong.autoart@gmail.com",
+    // Sếp's Google Drive email address for support receiving
+    FORMSUBMIT: "https://formsubmit.co/ajax/ndphuongsky@gmail.com",
     WEB3FORMS: "https://api.web3forms.com/submit"
   },
   WEB3FORMS_ACCESS_KEY: "YOUR_WEB3FORMS_PUBLIC_ACCESS_KEY",
