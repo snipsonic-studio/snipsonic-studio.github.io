@@ -88,8 +88,14 @@ export class SubmissionDispatcher {
 
     // Generate ticket ID
     const ticketId = this.generateTicketId();
+    this.lastTicketId = ticketId;
     formData.append("_subject", this.generateEmailSubject(ticketId));
     formData.append("ticket_id", ticketId);
+
+    const hiddenTicketInput = this.formEl.querySelector("input[name='ticket_id']");
+    if (hiddenTicketInput) {
+      hiddenTicketInput.value = ticketId;
+    }
 
     return formData;
   }
@@ -132,8 +138,10 @@ export class SubmissionDispatcher {
   }
 
   handleSuccess(response) {
-    if (response.success || response.code === 200) {
-      const ticketId = this.formEl.querySelector("input[name='ticket_id']").value;
+    const isSuccess = response.success === "true" || response.success === true || response.code === 200 || response.ok;
+    if (isSuccess) {
+      const ticketIdInput = this.formEl.querySelector("input[name='ticket_id']");
+      const ticketId = (ticketIdInput && ticketIdInput.value) || this.lastTicketId || "SNIP-CONFIRMED";
       this.ticketIdEl.textContent = ticketId;
       this.successModal.classList.remove("hidden");
       this.formEl.reset();
