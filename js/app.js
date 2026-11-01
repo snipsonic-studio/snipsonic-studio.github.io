@@ -67,7 +67,7 @@ if (domRefs.pasteClipboardBtn) {
       domRefs.hiddenStacktrace.value = clipboardText;
     } catch (err) {
       console.error("Failed to read clipboard:", err);
-      alert("Không thể đọc bộ nhớ tạm (clipboard). Vui lòng dán thủ công.");
+      alert("Could not access clipboard. Please paste manually.");
     }
   });
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnipSonic Studio - Hỗ Trợ & Phản Hồi</title>
+    <title>SnipSonic Studio - Official Support & Feedback</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/studio.css">
 </head>
@@ -19,9 +19,9 @@
                     </svg>
                 </div>
             </div>
-            <h1 class="text-2xl font-bold tracking-tight text-white mb-2">Trung Tâm Hỗ Trợ SnipSonic</h1>
+            <h1 class="text-2xl font-bold tracking-tight text-white mb-2">SnipSonic Support & Feedback</h1>
             <p class="text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
-                Cảm ơn bạn đã sử dụng SnipSonic. Mọi ý kiến góp ý, thắc mắc hoặc báo lỗi sẽ được chuyển thẳng đến đội ngũ phát triển.
+                Thank you for using SnipSonic. Whether you encountered an issue, have a feature idea, or need technical help, our engineering team is here for you.
             </p>
         </header>
 
@@ -29,16 +29,16 @@
         <div class="hub-card rounded-2xl p-6 md:p-8 backdrop-blur-sm">
             <!-- Category Tabs -->
             <div class="mb-6">
-                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Bạn cần hỗ trợ điều gì?</label>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">How can we help?</label>
                 <nav id="ticket-tabs" class="grid grid-cols-3 gap-1.5 p-1 bg-[#090D14] rounded-xl border border-white/5">
                     <button type="button" class="py-2 px-3 rounded-lg text-sm font-medium transition active" data-tab="bug">
-                        🐞 Báo lỗi
+                        🐞 Bug Report
                     </button>
                     <button type="button" class="py-2 px-3 rounded-lg text-sm font-medium transition" data-tab="feature">
-                        💡 Góp ý
+                        💡 Suggestion
                     </button>
                     <button type="button" class="py-2 px-3 rounded-lg text-sm font-medium transition" data-tab="general">
-                        💬 Khác
+                        💬 Question
                     </button>
                 </nav>
             </div>
@@ -47,13 +47,13 @@
             <div id="diag-card" class="hidden mb-6 p-3.5 rounded-xl bg-sky-950/30 border border-sky-500/20 text-xs">
                 <div class="flex items-center space-x-2 text-sky-400 font-medium mb-2">
                     <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span>Đã nhận diện thông số từ ứng dụng SnipSonic</span>
+                    <span>System diagnostics captured from SnipSonic Desktop</span>
                 </div>
                 <div id="diag-badges-container" class="flex flex-wrap gap-1.5 mb-2"></div>
                 <div id="stacktrace-wrapper" class="hidden mt-2 pt-2 border-t border-sky-500/10">
-                    <p class="text-slate-400 mb-1">Mã nhật ký lỗi kèm theo:</p>
+                    <p class="text-slate-400 mb-1">Attached Stacktrace / Diagnostic Tail:</p>
                     <pre id="stacktrace-pre" class="text-[11px] bg-black/40 p-2.5 rounded-lg overflow-x-auto max-h-32 text-slate-300 font-mono"></pre>
-                    <button type="button" id="paste-clipboard-btn" class="hidden mt-1.5 text-amber-400 hover:underline">📋 Dán thêm nhật ký từ Clipboard</button>
+                    <button type="button" id="paste-clipboard-btn" class="hidden mt-1.5 text-amber-400 hover:underline">📋 Paste additional log from Clipboard</button>
                 </div>
             </div>
 
@@ -73,41 +73,41 @@
                 <input type="hidden" name="_template" value="table">
 
                 <div>
-                    <label for="input-email" class="block text-sm font-medium text-slate-200 mb-1.5">Email của bạn <span class="text-sky-400">*</span></label>
-                    <input type="email" id="input-email" name="email" class="hub-input w-full px-3.5 py-2.5 rounded-xl text-sm" placeholder="tenban@gmail.com" required>
-                    <p class="text-xs text-slate-500 mt-1">Để chúng tôi gửi phản hồi khi sự cố được khắc phục.</p>
+                    <label for="input-email" class="block text-sm font-medium text-slate-200 mb-1.5">Email address <span class="text-sky-400">*</span></label>
+                    <input type="email" id="input-email" name="email" class="hub-input w-full px-3.5 py-2.5 rounded-xl text-sm" placeholder="you@example.com" required>
+                    <p class="text-xs text-slate-500 mt-1">We will only use this to reply directly to your inquiry.</p>
                 </div>
 
                 <div>
-                    <label for="input-subject" class="block text-sm font-medium text-slate-200 mb-1.5">Tiêu đề <span class="text-sky-400">*</span></label>
-                    <input type="text" id="input-subject" name="subject" class="hub-input w-full px-3.5 py-2.5 rounded-xl text-sm" placeholder="Tóm tắt ngắn gọn vấn đề hoặc ý tưởng..." required>
+                    <label for="input-subject" class="block text-sm font-medium text-slate-200 mb-1.5">Subject <span class="text-sky-400">*</span></label>
+                    <input type="text" id="input-subject" name="subject" class="hub-input w-full px-3.5 py-2.5 rounded-xl text-sm" placeholder="Brief summary of your issue or request..." required>
                 </div>
 
                 <div>
-                    <label for="input-description" class="block text-sm font-medium text-slate-200 mb-1.5">Nội dung chi tiết <span class="text-sky-400">*</span></label>
-                    <textarea id="input-description" name="description" rows="4" class="hub-input w-full px-3.5 py-2.5 rounded-xl text-sm leading-relaxed" placeholder="Mô tả cụ thể sự cố bạn gặp phải, hoặc đề xuất bạn mong muốn SnipSonic cải thiện..." required></textarea>
+                    <label for="input-description" class="block text-sm font-medium text-slate-200 mb-1.5">Description <span class="text-sky-400">*</span></label>
+                    <textarea id="input-description" name="description" rows="4" class="hub-input w-full px-3.5 py-2.5 rounded-xl text-sm leading-relaxed" placeholder="Please describe what happened, steps to reproduce, or what you would like to see improved..." required></textarea>
                 </div>
 
                 <!-- Dropzone for attachments -->
                 <div>
-                    <label class="block text-sm font-medium text-slate-200 mb-1.5">Tệp đính kèm <span class="text-xs text-slate-500 font-normal">(Không bắt buộc)</span></label>
+                    <label class="block text-sm font-medium text-slate-200 mb-1.5">Attachments <span class="text-xs text-slate-500 font-normal">(Optional)</span></label>
                     <div id="dropzone" class="border border-dashed border-white/10 hover:border-sky-400/50 bg-[#090D14]/60 rounded-xl p-4 text-center cursor-pointer transition">
                         <input type="file" id="file-input" name="attachments" class="hidden" multiple>
-                        <p class="text-xs text-slate-400">📎 Kéo thả ảnh chụp màn hình hoặc file log vào đây, hoặc <span class="text-sky-400 underline">chọn tệp</span></p>
-                        <p class="text-[11px] text-slate-500 mt-0.5">Hỗ trợ tệp ảnh (.png, .jpg) hoặc tệp log (.txt, .log) dưới 5MB</p>
+                        <p class="text-xs text-slate-400">📎 Drag &amp; drop screenshots or log files here, or <span class="text-sky-400 underline">browse</span></p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Supports images (.png, .jpg) or log files (.txt, .log) under 5MB</p>
                     </div>
                     <div id="file-list" class="mt-2 space-y-1.5"></div>
                 </div>
 
                 <button type="submit" id="submit-button" class="w-full py-3 bg-sky-400 hover:bg-sky-300 text-slate-950 font-semibold rounded-xl transition duration-150 shadow-md shadow-sky-500/10 flex items-center justify-center text-sm">
-                    Gửi phản hồi cho chúng tôi
+                    Submit Feedback
                 </button>
             </form>
         </div>
 
         <!-- Courteous Footer -->
         <footer class="text-center mt-8 text-xs text-slate-500">
-            <p>SnipSonic Studio &bull; Đội ngũ phát triển luôn trân trọng sự đóng góp của bạn.</p>
+            <p>SnipSonic Studio &bull; Built for creators. Every submission is reviewed directly by our developers.</p>
         </footer>
     </div>
 
@@ -117,18 +117,18 @@
             <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
             </div>
-            <h3 class="text-lg font-bold text-white mb-1.5">Đã gửi phản hồi thành công</h3>
-            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Cảm ơn bạn! Thông tin phản hồi đã được chuyển tiếp tới đội ngũ kỹ thuật của SnipSonic.</p>
+            <h3 class="text-lg font-bold text-white mb-1.5">Feedback Received</h3>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Thank you! Your ticket has been forwarded directly to the SnipSonic engineering team.</p>
             <div class="bg-[#090D14] border border-white/5 rounded-xl p-3 mb-4">
-                <p class="text-xs text-slate-500 mb-0.5">Mã hỗ trợ của bạn</p>
+                <p class="text-xs text-slate-500 mb-0.5">Your Reference Ticket ID</p>
                 <p id="ticket-id" class="font-mono text-sm font-bold text-sky-400">SNIP-2026-XXXX</p>
             </div>
             <div class="space-y-2">
                 <button type="button" id="copy-ticket-btn" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-medium transition">
-                    Sao chép mã hỗ trợ
+                    Copy Reference ID
                 </button>
                 <button type="button" id="close-modal-btn" class="w-full py-2.5 rounded-xl border border-white/10 hover:bg-white/5 text-slate-400 hover:text-white text-xs transition">
-                    Đóng cửa sổ
+                    Close
                 </button>
             </div>
         </div>

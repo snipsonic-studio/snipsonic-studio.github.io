@@ -95,15 +95,15 @@ export class TelemetryParser {
     }
 
     if (diagnostics.exception_summary && domRefs.subjectInput && !domRefs.subjectInput.value) {
-      domRefs.subjectInput.value = `[${diagnostics.error_code || "LỖI"}] ${diagnostics.exception_summary}`.slice(0, 120);
+      domRefs.subjectInput.value = `[${diagnostics.error_code || "BUG"}] ${diagnostics.exception_summary}`.slice(0, 120);
     }
 
     // Populate read-only hardware badges
     if (domRefs.badgeContainer) {
       domRefs.badgeContainer.textContent = "";
       const specs = [
-        { label: "Bản dựng", val: app.version ? `v${app.version}` : null },
-        { label: "HĐH", val: system.os },
+        { label: "Build", val: app.version ? `v${app.version}` : null },
+        { label: "OS", val: system.os },
         { label: "CPU", val: system.cpu },
         { label: "GPU", val: system.gpu },
         { label: "FPS", val: project_ctx.media_fps }
