@@ -117,24 +117,62 @@ export class SubmissionDispatcher {
     return `[SnipSonic Support][${ticketId}][${category.toUpperCase()}][v${version}] ${subject}`;
   }
 
-  async sendFormData(formData) {
-    const endpoint = HUB_CONFIG.ENDPOINTS[HUB_CONFIG.PROVIDER];
-
-    if (HUB_CONFIG.PROVIDER === "WEB3FORMS") {
-      formData.append("access_key", HUB_CONFIG.WEB3FORMS_ACCESS_KEY);
-      const response = await fetch(endpoint, {
-        method: "POST",
-        body: formData
+  async readFilesAsBase64() {
+    const files = this.dropzoneManager.binaryFiles;
+    const reads = files.map(file => new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve({
+        name: file.name,
+        type: file.type || "application/octet-stream",
+        base64: e.target.result.split(",")[1]
       });
-      return response.json();
-    } else {
-      // FormSubmit.co doesn't need the access key in the body
+      reader.onerror = () => resolve(null);
+      reader.readAsDataURL(file);
+    }));
+    const results = await Promise.all(reads);
+    return results.filter(Boolean);
+  }
+
+  async sendFormData(formData) {
+    const isGasActive = HUB_CONFIG.PROVIDER === "GOOGLE_APPS_SCRIPT" &&
+      !HUB_CONFIG.ENDPOINTS.GOOGLE_APPS_SCRIPT.includes("YOUR_SCRIPT_ID");
+
+    if (isGasActive) {
+      const endpoint = HUB_CONFIG.ENDPOINTS.GOOGLE_APPS_SCRIPT;
+      const attachments = await this.readFilesAsBase64();
+      const activeTabBtn = document.querySelector("#ticket-tabs button.active");
+      const category = activeTabBtn ? activeTabBtn.dataset.tab : "bug";
+      
+      let telemetry = {};
+      const telEl = this.formEl.querySelector("#hidden-telemetry-json");
+      if (telEl && telEl.value) {
+        try { telemetry = JSON.parse(telEl.value); } catch(e) {}
+      }
+
+      const payload = {
+        ticket_id: this.lastTicketId,
+        category: category,
+        email: this.formEl.querySelector("#input-email").value,
+        subject: this.formEl.querySelector("#input-subject").value,
+        description: this.formEl.querySelector("#input-description").value,
+        app_version: (this.formEl.querySelector("#input-app-version") || {}).value || "Web",
+        telemetry: telemetry,
+        attachments: attachments
+      };
+
       const response = await fetch(endpoint, {
         method: "POST",
-        body: formData
+        body: JSON.stringify(payload)
       });
       return response.json();
     }
+
+    const endpoint = HUB_CONFIG.ENDPOINTS.FORMSUBMIT;
+    const response = await fetch(endpoint, {
+      method: "POST",
+      body: formData
+    });
+    return response.json();
   }
 
   handleSuccess(response) {
