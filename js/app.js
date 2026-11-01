@@ -58,17 +58,19 @@ domRefs.ticketTabs.addEventListener("click", (e) => {
   }
 });
 
-// Handle paste clipboard button
-domRefs.pasteClipboardBtn.addEventListener("click", async () => {
-  try {
-    const clipboardText = await navigator.clipboard.readText();
-    domRefs.stacktracePre.textContent = clipboardText;
-    domRefs.hiddenStacktrace.value = clipboardText;
-  } catch (err) {
-    console.error("Failed to read clipboard:", err);
-    alert("Could not access clipboard. Please paste manually.");
-  }
-});
+// Handle paste clipboard button safely
+if (domRefs.pasteClipboardBtn) {
+  domRefs.pasteClipboardBtn.addEventListener("click", async () => {
+    try {
+      const clipboardText = await navigator.clipboard.readText();
+      domRefs.stacktracePre.textContent = clipboardText;
+      domRefs.hiddenStacktrace.value = clipboardText;
+    } catch (err) {
+      console.error("Failed to read clipboard:", err);
+      alert("Không thể đọc bộ nhớ tạm (clipboard). Vui lòng dán thủ công.");
+    }
+  });
+}
 
 // Initialize Lucide icons
 if (typeof lucide !== "undefined") {

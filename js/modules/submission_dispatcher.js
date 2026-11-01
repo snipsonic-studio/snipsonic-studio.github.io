@@ -51,7 +51,7 @@ export class SubmissionDispatcher {
     const description = this.formEl.querySelector("#input-description").value;
 
     if (!email || !subject || !description) {
-      alert("Please fill in all required fields");
+      alert("Vui lòng điền đầy đủ Email, Tiêu đề và Nội dung chi tiết trước khi gửi.");
       return false;
     }
 
@@ -66,7 +66,7 @@ export class SubmissionDispatcher {
     const recentSubmissions = rateLimitData.timestamps.filter(ts => ts > tenMinutesAgo);
 
     if (recentSubmissions.length >= HUB_CONFIG.LIMITS.MAX_TICKETS_PER_10_MIN) {
-      alert(`You have reached the maximum number of submissions (${HUB_CONFIG.LIMITS.MAX_TICKETS_PER_10_MIN} per 10 minutes). Please try again later.`);
+      alert(`Bạn đã gửi phản hồi nhiều lần trong thời gian ngắn (${HUB_CONFIG.LIMITS.MAX_TICKETS_PER_10_MIN} lượt/10 phút). Vui lòng thử lại sau ít phút.`);
       return false;
     }
 
@@ -163,25 +163,25 @@ export class SubmissionDispatcher {
 
   handleError(error) {
     console.error("Submission error:", error);
-    alert(`Error submitting the form: ${error.message}`);
+    alert(`Không thể gửi phản hồi: ${error.message || "Lỗi kết nối mạng"}`);
   }
 
   showLoadingState() {
     this.submitButton.disabled = true;
-    this.submitButton.innerHTML = `<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...`;
+    this.submitButton.innerHTML = `<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-slate-900 inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Đang gửi phản hồi...`;
   }
 
   resetSubmitButton() {
     this.submitButton.disabled = false;
-    this.submitButton.innerHTML = "Submit Ticket";
+    this.submitButton.innerHTML = "Gửi phản hồi cho chúng tôi";
   }
 
   copyTicketId() {
     const ticketId = this.ticketIdEl.textContent;
     navigator.clipboard.writeText(ticketId).then(() => {
-      this.copyTicketBtn.textContent = "Copied!";
+      this.copyTicketBtn.textContent = "✓ Đã sao chép";
       setTimeout(() => {
-        this.copyTicketBtn.textContent = "Copy Ticket ID";
+        this.copyTicketBtn.textContent = "Sao chép mã hỗ trợ";
       }, 2000);
     }).catch(err => {
       console.error("Failed to copy ticket ID:", err);

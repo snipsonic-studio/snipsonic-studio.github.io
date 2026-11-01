@@ -1,63 +1,80 @@
-/* SnipSonic Studio Support Hub - Custom Styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+/* SnipSonic Studio - Official Support Hub
+   Aesthetic: Refined Studio Dark, Dignified, Minimalist & Trustworthy
+   Strict Modular Limit: < 300 lines */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-main: #0B0F19;
+  --card-bg: #111827;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --input-bg: #090D14;
+  --text-muted: #94A3B8;
+  --accent-sky: #38BDF8;
+}
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #090D14;
-    color: #F8FAFC;
-    overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-main);
+  background-image: radial-gradient(circle at 50% -20%, rgba(56, 189, 248, 0.08) 0%, rgba(11, 15, 25, 0) 70%);
+  color: #F1F5F9;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 pre, code {
-    font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Glassmorphism */
-.glass-panel {
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+/* Glass & Card Styling */
+.hub-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Elegant Segmented Tabs */
+#ticket-tabs button {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #94A3B8;
+}
+#ticket-tabs button:hover {
+  color: #F8FAFC;
+}
+#ticket-tabs button.active {
+  background: #1E293B;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Inputs */
+.hub-input {
+  background: var(--input-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #F8FAFC;
+  transition: all 0.15s ease;
+}
+.hub-input:focus {
+  border-color: var(--accent-sky) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+  outline: none;
+}
+.hub-input::placeholder {
+  color: #475569;
 }
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: rgba(15, 23, 42, 0.6);
+  background: rgba(15, 23, 42, 0.6);
 }
 ::-webkit-scrollbar-thumb {
-    background: #334155;
-    border-radius: 3px;
+  background: #334155;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
-}
-
-/* Active tab styles */
-#ticket-tabs button {
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0.65;
-}
-#ticket-tabs button.active {
-    opacity: 1;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-#ticket-tabs button[data-tab="bug"].active {
-    border-bottom: 2px solid #F59E0B;
-}
-#ticket-tabs button[data-tab="feature"].active {
-    border-bottom: 2px solid #38BDF8;
-}
-#ticket-tabs button[data-tab="general"].active {
-    border-bottom: 2px solid #10B981;
-}
-
-/* Input Focus Glow */
-input:focus, textarea:focus, select:focus {
-    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
-    border-color: #38BDF8 !important;
+  background: #475569;
 }

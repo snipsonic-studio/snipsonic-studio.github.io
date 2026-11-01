@@ -49,7 +49,7 @@ export class DropzoneManager {
       } else if (this.isBinaryFile(file)) {
         this.addBinaryFile(file);
       } else {
-        this.showError(`Unsupported file type: ${file.name}`);
+        this.showError(`Định dạng tệp không được hỗ trợ: ${file.name}`);
       }
     }
   }
@@ -69,7 +69,7 @@ export class DropzoneManager {
     reader.onload = (e) => {
       const content = e.target.result;
       if (content.length > HUB_CONFIG.LIMITS.MAX_INLINE_LOG_CHARS) {
-        this.showError(`Log file too large: ${file.name} (${Math.round(content.length/1024)}KB)`);
+        this.showError(`Tệp log quá lớn: ${file.name} (${Math.round(content.length/1024)}KB)`);
         return;
       }
       this.inlineTextLogs.push({ name: file.name, content });
@@ -81,7 +81,7 @@ export class DropzoneManager {
   addBinaryFile(file) {
     const fileSizeMB = file.size / (1024 * 1024);
     if (fileSizeMB > HUB_CONFIG.LIMITS.MAX_BINARY_FILE_SIZE_MB) {
-      this.showError(`File too large: ${file.name} (${fileSizeMB.toFixed(1)}MB)`);
+      this.showError(`Tệp quá lớn: ${file.name} (${fileSizeMB.toFixed(1)}MB, tối đa 5MB)`);
       return;
     }
     this.binaryFiles.push(file);

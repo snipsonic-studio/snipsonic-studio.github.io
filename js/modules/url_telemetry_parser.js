@@ -78,15 +78,16 @@ export class TelemetryParser {
    */
   static hydrateDom(context, domRefs) {
     if (!context.isAppFlow || !context.payload) {
-      domRefs.appBanner.classList.add("hidden");
-      domRefs.manualEnvGroup.classList.remove("hidden");
-      domRefs.diagCard.classList.add("opacity-60");
+      if (domRefs.appBanner) domRefs.appBanner.classList.remove("hidden");
+      if (domRefs.diagCard) domRefs.diagCard.classList.add("hidden");
+      if (domRefs.manualEnvGroup) domRefs.manualEnvGroup.classList.add("hidden");
       return;
     }
 
     const { app = {}, system = {}, project_ctx = {}, diagnostics = {} } = context.payload;
-    domRefs.appBanner.classList.remove("hidden");
-    domRefs.manualEnvGroup.classList.add("hidden");
+    if (domRefs.appBanner) domRefs.appBanner.classList.remove("hidden");
+    if (domRefs.manualEnvGroup) domRefs.manualEnvGroup.classList.add("hidden");
+    if (domRefs.diagCard) domRefs.diagCard.classList.remove("hidden");
 
     if (app.version && domRefs.versionInput) {
       domRefs.versionInput.value = String(app.version);
@@ -94,33 +95,33 @@ export class TelemetryParser {
     }
 
     if (diagnostics.exception_summary && domRefs.subjectInput && !domRefs.subjectInput.value) {
-      domRefs.subjectInput.value = `[${diagnostics.error_code || "DIAG"}] ${diagnostics.exception_summary}`.slice(0, 120);
+      domRefs.subjectInput.value = `[${diagnostics.error_code || "LỖI"}] ${diagnostics.exception_summary}`.slice(0, 120);
     }
 
     // Populate read-only hardware badges
-    domRefs.badgeContainer.textContent = "";
-    const specs = [
-      { label: "OS", val: system.os },
-      { label: "CPU", val: system.cpu },
-      { label: "GPU", val: system.gpu },
-      { label: "RAM", val: system.ram_gb ? `${system.ram_gb} GB` : null },
-      { label: "ONNX", val: system.onnx_ep },
-      { label: "FPS", val: project_ctx.media_fps },
-      { label: "Action", val: project_ctx.last_action }
-    ];
+    if (domRefs.badgeContainer) {
+      domRefs.badgeContainer.textContent = "";
+      const specs = [
+        { label: "Bản dựng", val: app.version ? `v${app.version}` : null },
+        { label: "HĐH", val: system.os },
+        { label: "CPU", val: system.cpu },
+        { label: "GPU", val: system.gpu },
+        { label: "FPS", val: project_ctx.media_fps }
+      ];
 
-    specs.forEach((item) => {
-      if (!item.val) return;
-      const chip = document.createElement("div");
-      chip.className = "px-2.5 py-1 rounded bg-slate-800/90 border border-white/10 text-xs font-mono text-slate-300";
-      chip.textContent = `${item.label}: ${item.val}`;
-      domRefs.badgeContainer.appendChild(chip);
-    });
+      specs.forEach((item) => {
+        if (!item.val) return;
+        const chip = document.createElement("div");
+        chip.className = "px-2 py-0.5 rounded bg-slate-800/80 border border-white/10 text-xs font-mono text-slate-300";
+        chip.textContent = `${item.label}: ${item.val}`;
+        domRefs.badgeContainer.appendChild(chip);
+      });
+    }
 
-    if (diagnostics.stacktrace_tail) {
+    if (diagnostics.stacktrace_tail && domRefs.stacktraceWrapper && domRefs.stacktracePre) {
       domRefs.stacktraceWrapper.classList.remove("hidden");
       domRefs.stacktracePre.textContent = String(diagnostics.stacktrace_tail);
-      domRefs.hiddenStacktrace.value = String(diagnostics.stacktrace_tail);
+      if (domRefs.hiddenStacktrace) domRefs.hiddenStacktrace.value = String(diagnostics.stacktrace_tail);
     }
 
     if (diagnostics.trace_truncated && domRefs.pasteClipboardBtn) {
@@ -128,7 +129,11 @@ export class TelemetryParser {
     }
 
     // Serialize full diagnostic JSON into hidden form input for email delivery
-    domRefs.hiddenTelemetryJson.value = JSON.stringify(context.payload, null, 2);
-    domRefs.descriptionTextarea.focus();
+    if (domRefs.hiddenTelemetryJson) {
+      domRefs.hiddenTelemetryJson.value = JSON.stringify(context.payload, null, 2);
+    }
+    if (domRefs.descriptionTextarea) {
+      domRefs.descriptionTextarea.focus();
+    }
   }
 }
