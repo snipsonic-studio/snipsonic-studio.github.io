@@ -1,11 +1,11 @@
 {
   "latest_version": "2026.2.0",
-  "release_date": "2026-11-03",
+  "release_date": "2026-11-04",
   "mandatory": false,
   "min_supported_version": "2026.1.0",
-  "download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.2.0/SnipSonic_Portable_v2026.2.0.zip",
-  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "file_size_bytes": 148897792,
+  "download_url": "https://releases.snipsonic.com/v2026.1/SnipSonic_Studio_Setup_v2026.1.exe",
+  "sha256": "bad29b7889161f13e5bddc8296205d1c8d061a8cd6a0f0215dff34c599348e34",
+  "file_size_bytes": 415701059,
   "changelog": [
     "AI Silence Jumpcut: Optimized Silero VAD v5 inference, boosting silence detection speed by 18%.",
     "NLE Timeline Sync: Added native FCPXML v1.10 export for DaVinci Resolve 19 and Adobe Premiere XML.",
