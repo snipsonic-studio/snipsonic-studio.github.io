@@ -13,4 +13,48 @@ Download Windows Installer (.exe)
           window.createLemonSqueezy();
         }
       });
+    </script> <!-- Telemetry Tracker (Anfred Production Monitor) --> <script>
+      (function() {
+        var TELEMETRY_URL = 'http://100.125.90.32:8000/api/telemetry/event';
+        function sendEvent(eventType, extra) {
+          try {
+            var payload = JSON.stringify({
+              app: 'snipsonic',
+              event: eventType,
+              path: window.location.pathname,
+              referrer: document.referrer || '',
+              metadata: extra || {}
+            });
+            if (navigator.sendBeacon) {
+              var blob = new Blob([payload], { type: 'application/json' });
+              navigator.sendBeacon(TELEMETRY_URL, blob);
+            } else {
+              fetch(TELEMETRY_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: payload,
+                keepalive: true,
+                mode: 'no-cors'
+              }).catch(function() {});
+            }
+          } catch(e) {}
+        }
+
+        // 1. Pageview
+        if (document.readyState === 'complete') {
+          sendEvent('pageview');
+        } else {
+          window.addEventListener('load', function() { sendEvent('pageview'); });
+        }
+
+        // 2. Download clicks
+        document.addEventListener('click', function(e) {
+          var target = e.target && e.target.closest('a');
+          if (target && target.href) {
+            if (target.href.indexOf('releases/download') !== -1 || target.href.indexOf('/download') !== -1) {
+              sendEvent('download_click', { href: target.href, text: target.innerText.trim() });
+            }
+          }
+        }, true);
+      })();
     </script> </body> </html>
