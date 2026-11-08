@@ -1,0 +1,10 @@
+{
+  "size_bytes": 145217532,
+  "sha256": "d01c3014881c9c6f3133c182f3d2887eb6ca1c789a7538c5c007196857a0a6a9",
+  "parts": [
+    "model.bin.part0",
+    "model.bin.part1",
+    "model.bin.part2",
+    "model.bin.part3"
+  ]
+}

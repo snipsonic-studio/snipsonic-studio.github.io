@@ -4,8 +4,8 @@
   "mandatory": false,
   "min_supported_version": "2026.1",
   "download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.1/SnipSonic_Studio_Setup_v2026.1.exe",
-  "sha256": "3bfceab43c575184a82d2cdb68354d72a68e380213a9d7c40bd8f7198cd97cd5",
-  "file_size_bytes": 319458464,
+  "sha256": "6e10632d3d30f459e9f817c4acb0e2a78c55fbace4535f8a6fb3a7ee13fe0ba9",
+  "file_size_bytes": 142816730,
   "changelog": [
     "Official Release v2026.1: Free Trial Edition with 10 free video exports.",
     "Integrated 1-Click Windows Installer (.exe) with automatic per-user setup.",
