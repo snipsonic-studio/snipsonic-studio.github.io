@@ -1,0 +1,47 @@
+# SnipSonic Studio — Full Technical & Product Manifesto
+
+## 1. Overview & Positioning
+SnipSonic Studio is an AI-powered automated video jumpcut and silence removal editing suite engineered specifically for content creators, YouTubers, podcasters, educators, and professional video editors.
+
+SnipSonic is available in two complementary versions:
+1. **SnipSonic Web Lite Editor**: A 100% in-browser, client-side web application running on modern web standards (Astro 5, React 19, Web Audio API, WebCodecs, Chromium FaceDetector). It requires no user registration, no email submission, no credit card, and never uploads video data to external servers. It is free forever.
+2. **SnipSonic Studio Desktop**: A dedicated high-performance desktop application for Windows, featuring GPU-accelerated 100fps rendering, multi-track audio synchronization, AI subtitle generation, and local Faster-Whisper transcription for multi-hour 4K raw footage. It is sold as a $29 one-time lifetime license.
+
+## 2. Technical Architecture & Privacy-First Philosophy
+Traditional SaaS video editors (such as Descript, Opus Clip, or Kapwing) require users to upload gigabytes of raw video files to cloud servers. This results in:
+- Long upload wait times (often 10 to 30 minutes on residential connections).
+- High cloud compute latency and bandwidth quotas.
+- Data privacy risks for proprietary or unpublished footage.
+
+SnipSonic eliminates these pain points entirely through **Zero-Upload Local Processing**:
+- In the Web Editor, raw video files are read directly via HTML5 File and Blob APIs into local memory.
+- Audio silence is detected using the browser's native Web Audio AnalyserNode and custom Voice Activity Detection (VAD) algorithms.
+- Speech cuts and intervals are calculated locally in milliseconds.
+- Exported timelines (.xml, .fcpxml, .edl) are generated purely as text strings on the client device.
+
+## 3. Supported NLE (Non-Linear Editor) Export Formats
+SnipSonic is designed as an upstream pre-cut tool that integrates seamlessly into industry-standard editing workflows:
+- **Adobe Premiere Pro**: Generates FCP XML (<xmeml> v4) compatible with Adobe Premiere Pro CC 2020 through 2026.
+- **Apple Final Cut Pro**: Generates FCPXML 1.9 format for instant import into Final Cut Pro.
+- **DaVinci Resolve**: Generates standard CMX 3600 EDL (Edit Decision List) for DaVinci Resolve Studio and Free versions.
+
+## 4. Key Features & Controls
+- **Silence Sensitivity Threshold**: Adjustable from -50 dB to -20 dB to adapt to different microphone gains and room noise levels.
+- **Filler Word Stripper**: Quickly identifies and removes speech hesitations ("um", "uh", "you know").
+- **Dynamic Punch-In Zoom**: Automatically zooms in 1.15x on alternating speech segments using facial tracking or center optical framing to create visual rhythm and retention.
+- **Timeline Zoom Inspector**: Click any speech block on the visual canvas timeline to manually adjust zoom scale between 1.0x and 1.4x.
+
+## 5. Pricing & Lifetime License Details
+- **Web Lite Editor**: Free ($0) forever.
+- **Desktop Studio Lifetime**: $29 USD (one-time payment, no recurring monthly subscription).
+- **Accepted Discounts**: `LAUNCH20` ($20 off regular $49 list price) or `FIRST30` (30% discount).
+- **Payment Processor**: Dodo Payments (PCI-DSS Level 1 compliant).
+- **Operating Systems**: Web (any Chromium browser, Chrome, Edge, Brave), Desktop (Windows 10/11 64-bit).
+
+## 6. Canonical URLs
+- Web App Editor: https://snipsonic-studio.github.io/editor/
+- Home Page: https://snipsonic-studio.github.io/
+- Recut vs SnipSonic: https://snipsonic-studio.github.io/compare/recut-alternative/
+- Timebolt vs SnipSonic: https://snipsonic-studio.github.io/compare/timebolt-alternative/
+- Download Hub: https://snipsonic-studio.github.io/download/
+- Technical Support: https://snipsonic-studio.github.io/support/

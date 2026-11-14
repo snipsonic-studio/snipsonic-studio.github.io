@@ -1,4 +1,22 @@
 User-agent: *
 Allow: /
 
+# AI Crawlers & LLM Engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 Sitemap: https://snipsonic-studio.github.io/sitemap.xml
+# LLM Manifest
+# https://snipsonic-studio.github.io/llms.txt

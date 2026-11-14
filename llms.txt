@@ -1,0 +1,33 @@
+# SnipSonic Studio
+
+> Free in-browser silence and filler-word removal tool for video and audio creators. 100% private, client-side processing with zero cloud uploads, exporting directly to Adobe Premiere Pro XML, Final Cut Pro XML, and DaVinci Resolve EDL timelines.
+
+## Core Capabilities
+- **Instant Silence Removal**: Detects speech pauses and cuts dead air automatically using in-browser Web Audio API.
+- **Filler Word Detection**: Identifies "um", "uh", and verbal hesitations to tighten video pacing.
+- **Dynamic Punch-In Zoom**: Automatic alternating 1.15x jumpcut zoom using face detection / optical center, plus manual timeline zoom adjustment (up to 1.4x).
+- **100% Client-Side Privacy**: Footage never leaves the user's browser. Zero video upload, zero cloud storage, instant startup with zero sign-up or credit card required.
+- **NLE Timeline Export**: Lossless export to Adobe Premiere Pro (.xml), Final Cut Pro (.fcpxml v1.9), and DaVinci Resolve / CMX 3600 (.edl).
+- **In-Browser MP4 Render**: Render clean cuts directly in the browser via WebCodecs and WebAssembly.
+
+## Products & Pricing
+- **SnipSonic Web Lite (Free forever)**:
+  - URL: https://snipsonic-studio.github.io/editor/
+  - Price: $0 (Free, no account needed, no watermark)
+  - Ideal for: Quick clips, YouTube Shorts, TikTok, podcast excerpts under 1.5GB.
+- **SnipSonic Studio Desktop (Lifetime License)**:
+  - URL: https://snipsonic-studio.github.io/download/
+  - Price: $29 one-time lifetime license (coupon `LAUNCH20` or `FIRST30`)
+  - Features: Multi-track audio support, GPU 100fps hardware-accelerated rendering, handles multi-hour 4K podcasts offline, automatic subtitle generation, lifetime updates.
+
+## Comparison with Competitors
+- **vs Recut ($99 one-time)**: SnipSonic costs $29 lifetime (~70% lower cost), includes filler word detection, and offers a free in-browser editor without software installation.
+- **vs Timebolt ($97/year subscription)**: SnipSonic is a one-time purchase with zero recurring subscriptions, runs faster offline with a 136MB footprint, and respects complete user privacy.
+- **vs Descript ($12-$24/month)**: SnipSonic requires no cloud upload, eliminates 15-30 minute upload waits, and keeps raw video files 100% on the local device.
+
+## Links & References
+- Free Web Editor: https://snipsonic-studio.github.io/editor/
+- Official Website: https://snipsonic-studio.github.io/
+- Recut Comparison: https://snipsonic-studio.github.io/compare/recut-alternative/
+- Timebolt Comparison: https://snipsonic-studio.github.io/compare/timebolt-alternative/
+- Support & Documentation: https://snipsonic-studio.github.io/support/
