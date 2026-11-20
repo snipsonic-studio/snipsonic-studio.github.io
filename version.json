@@ -1,16 +1,19 @@
 {
-  "latest_version": "2026.1",
-  "release_date": "2026-11-07",
+  "latest_version": "2026.2",
+  "release_date": "2026-11-20",
   "mandatory": false,
   "min_supported_version": "2026.1",
-  "download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.1/SnipSonic_Studio_Setup_v2026.1.exe",
-  "sha256": "3bfceab43c575184a82d2cdb68354d72a68e380213a9d7c40bd8f7198cd97cd5",
-  "file_size_bytes": 319458464,
+  "download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.2/SnipSonic_Studio_v2026.2_Portable_Win64.zip",
+  "sha256": "04855024a89ba7de1e83bd645313716f20fff51bb0e45580ef8ef56c6e246863",
+  "file_size_bytes": 233561046,
+  "installer_download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.2/SnipSonic_Studio_Setup_v2026.2.exe",
+  "installer_sha256": "117af27659a21aaec6ab093b763c74a08c959c3f5394dd360d87a19f8428bf2e",
+  "installer_size_bytes": 158271503,
   "changelog": [
-    "Official Release v2026.1: Free Trial Edition with 10 free video exports.",
-    "Integrated 1-Click Windows Installer (.exe) with automatic per-user setup.",
-    "AI Silence Jumpcut: Optimized Silero VAD v5 inference with Multi-Track Timeline.",
-    "Native NLE Export: DaVinci Resolve FCPXML v1.10 and Adobe Premiere XML.",
-    "100% Offline Privacy: Local Faster-Whisper base model and bundled static FFmpeg."
+    "Live Caption Transcription Monitor: Real-time progress %, timecode, ETA, speed, word count, GPU/CPU badge, live transcript preview, and safe Cancel.",
+    "Seamless Inline Caption Editing: Click directly on the on-video caption box with focus border, Enter/click-outside auto-save, Esc cancel, and Saved badge.",
+    "Long-Video Stability Fix: Eliminated 3-minute UI freeze when editing captions on 2+ hour videos (<1ms latency) plus O(log N) playhead caption lookup.",
+    "Precision Caption Box Geometry: 4-slider Width/Height/Pos X/Pos Y controls with 2D auto-fit font sizing matching the visual bounds guide 1:1.",
+    "Dual Anti-Glare Studio Themes (Dark 5 & Light 1), Adaptive Inspector, Locked Fit/Contain Video Viewport, Interactive Timeline Scrollbar & 60K Waveform."
   ]
 }
