@@ -1,24 +1,18 @@
 {
-  "latest_version": "2026.2.2",
-  "release_date": "2026-11-21",
+  "latest_version": "2026.2.4",
+  "release_date": "2026-11-22",
   "mandatory": false,
   "min_supported_version": "2026.1",
-  "download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.2.2/SnipSonic_Studio_v2026.2.2_Portable_Win64.zip",
-  "sha256": "51c879811f6e74934843b55c6613f9542a558f129ac64a1d7d6ab243c78e6fb0",
-  "file_size_bytes": 251642463,
-  "installer_download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.2.2/SnipSonic_Studio_Setup_v2026.2.2.exe",
-  "installer_sha256": "379bb10ef7acbfafeb8f6d7bf0a95147434eebb3a69bb473af4b3e7d0752405c",
-  "installer_size_bytes": 171515747,
+  "download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.2.4/SnipSonic_Studio_v2026.2.4_Portable_Win64.zip",
+  "sha256": "4e5c56f925149c606ca11c8e576abbf5fe4d40d0134a8e2c1a370c8539b62907",
+  "file_size_bytes": 251801698,
+  "installer_download_url": "https://github.com/snipsonic-studio/snipsonic-studio.github.io/releases/download/v2026.2.4/SnipSonic_Studio_Setup_v2026.2.4.exe",
+  "installer_sha256": "ede03991de7cbbd9947d312782d8eeaa8cedfd1f222e705c0a7615b2ca485f9f",
+  "installer_size_bytes": 171680169,
   "changelog": [
-    "Master Audio Enhancement: Real-time 30px Master VU Peak Meter with dBFS telemetry and clipping indicator.",
-    "Track Gain Fader: Multi-track fader controls (+12dB to -12dB) with smooth timeline DSP mixing.",
-    "Decoupled Monitor Volume: Independent preview playback volume without affecting rendered export levels.",
-    "DAW Soft Limiter: Anti-clipping tanh saturation limiter at 0.85 threshold for clean, warm analog audio output.",
-    "CUDA cuBLAS Automatic Fallback: Auto-detects NVIDIA GPU CUDA 12/11 DLL compatibility via two-tier defense, safely falling back to CPU INT8 if libraries are missing.",
-    "In-App Auto-Updater Swap Fix: Replaced tasklist-find pipe with graceful sleep and 10x robocopy retries to prevent pipe deadlock.",
-    "Live Caption Transcription Monitor: Real-time progress %, timecode, ETA, speed, word count, GPU/CPU badge, live transcript preview, and safe Cancel.",
-    "Seamless Inline Caption Editing: Click directly on the on-video caption box with focus border, Enter/click-outside auto-save, Esc cancel, and Saved badge.",
-    "Long-Video Stability Fix: Eliminated UI freeze when editing captions on 2+ hour videos (<1ms latency) plus O(log N) playhead caption lookup.",
-    "Precision Caption Box Geometry: 4-slider Width/Height/Pos X/Pos Y controls with 2D auto-fit font sizing matching the visual bounds guide 1:1."
+    "Instant Splash Bootstrap: Sub-200ms cold boot with smooth Adobe-style 1.8s minimum display duration.",
+    "Dynamic Audio Gain: Balanced Dynamic Headroom (K_nominal=0.50) + Soft-Knee Saturation for pristine real-time playback.",
+    "Master VU Meter Ballistics: Dynamic peak tracking reacting accurately to timeline track gain adjustments.",
+    "Lossless Gain Export: Full user gain preservation across FFmpeg MP4 export and NLE timeline XMLs."
   ]
 }
